@@ -1,0 +1,21 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Productos de ejemplo
+    const productos = [
+        { id: 1, nombre: 'Producto 1', precio: 20, margen: 0.25, imagen: 'https://via.placeholder.com/250', enlace: '#'},
+        { id: 2, nombre: 'Producto 2', precio: 15, margen: 0.20, imagen: 'https://via.placeholder.com/250', enlace: '#'}
+    ];
+
+    // Mostrar los productos en la tienda
+    const contenedorProductos = document.querySelector('#productos');
+    productos.forEach(producto => {
+        const precioFinal = producto.precio * (1 + producto.margen);
+        contenedorProductos.innerHTML += `
+            <div class="producto">
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <h3>${producto.nombre}</h3>
+                <p>Precio: $${precioFinal.toFixed(2)}</p>
+                <a href="${producto.enlace}" class="comprar">Comprar ahora</a>
+            </div>
+        `;
+    });
+});
